@@ -1,0 +1,14 @@
+{
+  "resourceName": "s305015001",
+  "policyUUID": "05015001",
+  "bucketName": "circuit85eb876d15984ebda0f7a4f494b40f3e",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE"
+  ],
+  "triggerFunction": "S3Triggere644a2c6",
+  "groupAccess": {}
+}
