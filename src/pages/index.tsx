@@ -5,7 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 
-import Image from "./Image";
+import Art from "./Image";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
@@ -22,9 +22,7 @@ const Home: NextPage = () => {
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             Circuit's Gallary
           </h1>
-          <Image
-            props={{ url: "https://placeimg.com/400/225/arch", alt: "Shoes" }}
-          />
+          <Art url={"https://placeimg.com/400/225/arch"} alt={"Shoes"} />
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
