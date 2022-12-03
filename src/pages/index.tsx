@@ -10,6 +10,13 @@ import Art from "./Image";
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
 
+  const handleClick = async () => {
+    console.log("click");
+    const res = await fetch("/api/auth/signin");
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <>
       <Head>
@@ -52,6 +59,7 @@ const Home: NextPage = () => {
             </p>
             <AuthShowcase />
           </div>
+          <input type="file" onClick={handleClick} />
         </div>
       </main>
     </>

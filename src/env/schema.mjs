@@ -21,6 +21,11 @@ export const serverSchema = z.object({
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  BUCKET_NAME: z.string(),
+  S3_URL: z.string().url(),
+  AWS_REGION: z.string(),
+  AWS_ACCESS_KEY_ID: z.string(),
+  AWS_SECRET_KEY: z.string(),
 });
 
 /**

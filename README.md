@@ -33,3 +33,7 @@ docs:
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/s3-example-photos-view.html
 
 https://javascript.plainenglish.io/how-to-upload-files-to-aws-s3-in-react-591e533d615e
+
+https://github.com/Developer-Amit/react-aws-s3
+
+https://www.prisma.io/docs/concepts/components/prisma-client/crud
