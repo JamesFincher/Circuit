@@ -1,14 +1,40 @@
+import { useState, useEffect } from 'react'
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { SessionContext, signIn, signOut, useSession } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 
 import Art from "./Image";
+import loadConfig from 'next/dist/server/config';
 
 const Home: NextPage = () => {
+  const [images, setImages] = useState<any>([]);
+  const [loading, setLoading] = useState(true)
+
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const data = await fetch('https://circuit-ai.herokuapp.com/aws/all')
+      const images = await data.json()
+      setImages(images.Contents)
+      setLoading(false)
+    }
+    fetchImages()
+  }, [])
+
+
+      
+
+  
+
+
+
+
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
+  const sessionData = trpc.auth.getSession.useQuery()
+
 
   const handleClick = async () => {
     console.log("click");
@@ -29,7 +55,9 @@ const Home: NextPage = () => {
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             Circuits Gallary
           </h1>
-          <Art url={"https://placeimg.com/400/225/arch"} alt={"Shoes"} />
+          <div className="flex flex-col items-center justify-center gap-4">
+            {loading ? <p>Loading...</p> : <Art images={images} />}
+          </div>     
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
@@ -91,3 +119,7 @@ const AuthShowcase: React.FC = () => {
     </div>
   );
 };
+function onMount(arg0: () => void) {
+  throw new Error('Function not implemented.');
+}
+
