@@ -1,6 +1,5 @@
 import React from 'react'
 
-type Props = {}
 
 const Art = (props: any) => {
   const { images } = props
