@@ -1,18 +1,18 @@
 import React from "react";
 
 const Art = (props: any) => {
-  const { images, isLoading } = props;
+  const { images, loading } = props;
 
   console.log(images, "images");
 
-  if (isLoading) {
+  if (loading === true) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
       {images.map((image: any) => (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 shadow-xl" key={image.url}>
           <figure>
             <img src={image.url} alt={image.alt} />
           </figure>

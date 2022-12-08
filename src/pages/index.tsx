@@ -38,7 +38,7 @@ const Home: NextPage = () => {
             Circuits Gallary
           </h1>
           <div className="flex flex-col items-center justify-center gap-4">
-            <Art images={data} isloading={isLoading} />
+            <Art images={data} loading={isLoading} />
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
