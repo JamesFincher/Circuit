@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -7,34 +7,16 @@ import { SessionContext, signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 
 import Art from "./Image";
-import loadConfig from 'next/dist/server/config';
+import loadConfig from "next/dist/server/config";
 
 const Home: NextPage = () => {
-  const [images, setImages] = useState<any>([]);
-  const [loading, setLoading] = useState(true)
+  const [images, setImages] = useState("");
+  const [loading, setLoading] = useState(true);
 
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      const data = await fetch('https://circuit-ai.herokuapp.com/aws/all')
-      const images = await data.json()
-      setImages(images.Contents)
-      setLoading(false)
-    }
-    fetchImages()
-  }, [])
-
-
-      
-
-  
-
-
-
+  const { data, isLoading } = trpc.images.getAllImages.useQuery();
 
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-  const sessionData = trpc.auth.getSession.useQuery()
-
+  const sessionData = trpc.auth.getSession.useQuery();
 
   const handleClick = async () => {
     console.log("click");
@@ -56,8 +38,8 @@ const Home: NextPage = () => {
             Circuits Gallary
           </h1>
           <div className="flex flex-col items-center justify-center gap-4">
-            {loading ? <p>Loading...</p> : <Art images={images} />}
-          </div>     
+            <Art images={data} isloading={isLoading} />
+          </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
@@ -120,6 +102,5 @@ const AuthShowcase: React.FC = () => {
   );
 };
 function onMount(arg0: () => void) {
-  throw new Error('Function not implemented.');
+  throw new Error("Function not implemented.");
 }
-

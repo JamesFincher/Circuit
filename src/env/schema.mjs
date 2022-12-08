@@ -20,7 +20,7 @@ export const serverSchema = z.object({
     process.env.VERCEL ? z.string() : z.string().url()
 
     ),
-
+    API_URL: z.string()
     //This has been commented out for now. We are strictly interfacing with aws from circuit-be
   // DISCORD_CLIENT_ID: z.string(),
   // DISCORD_CLIENT_SECRET: z.string(),

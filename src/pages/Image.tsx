@@ -1,35 +1,36 @@
-import React from 'react'
-
+import React from "react";
 
 const Art = (props: any) => {
-  const { images } = props
+  const { images, isLoading } = props;
 
-  console.log(images, 'images')
+  console.log(images, "images");
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-      <p className="testing">testing</p>
-  )
-}
-  
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
+      {images.map((image: any) => (
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <figure>
+            <img src={image.url} alt={image.alt} />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Daisy Works</h2>
+            <p>{image.url}</p>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions justify-end">
+              <button className="btn-primary btn">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Art
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Art;
 
 // /* eslint-disable @next/next/no-img-element */
 // import React from "react";
