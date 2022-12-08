@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Art = (props: any) => {
   const { images, loading } = props;
@@ -14,7 +15,7 @@ const Art = (props: any) => {
       {images.map((image: any) => (
         <div className="card w-96 bg-base-100 shadow-xl" key={image.url}>
           <figure>
-            <img src={image.url} alt={image.alt} />
+            <Image src={image.url} alt={image.alt} width={500} height={500} />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Daisy Works</h2>
