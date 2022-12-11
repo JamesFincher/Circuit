@@ -1,7 +1,19 @@
 import React from "react";
 import Image from "next/image";
 
-const Art = (props: any) => {
+//types
+
+interface ImageProps {
+  images: [image]
+  loading: boolean
+}
+
+interface image {
+  url: string
+  alt: string
+}
+
+const Art = (props: ImageProps) => {
   const { images, loading } = props;
 
   console.log(images, "images");
@@ -12,7 +24,7 @@ const Art = (props: any) => {
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-      {images.map((image: any) => (
+      {images.map((image: image) => (
         <div className="card w-96 bg-base-100 shadow-xl" key={image.url}>
           <figure>
             <Image src={image.url} alt={image.alt} width={500} height={500} />

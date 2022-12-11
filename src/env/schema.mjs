@@ -18,12 +18,11 @@ export const serverSchema = z.object({
     (str) => process.env.VERCEL_URL ?? str,
     // VERCEL_URL doesn't include `https` so it cant be validated as a URL
     process.env.VERCEL ? z.string() : z.string().url()
-
-    ),
-    API_URL: z.string()
-    //This has been commented out for now. We are strictly interfacing with aws from circuit-be
-  // DISCORD_CLIENT_ID: z.string(),
-  // DISCORD_CLIENT_SECRET: z.string(),
+  ),
+  API_URL: z.string(),
+  //This has been commented out for now. We are strictly interfacing with aws from circuit-be
+  DISCORD_CLIENT_ID: z.string(),
+  DISCORD_CLIENT_SECRET: z.string(),
   // BUCKET_NAME: z.string(),
   // S3_URL: z.string().url(),
   // AWS_REGION: z.string(),
