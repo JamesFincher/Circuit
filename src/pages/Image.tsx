@@ -14,7 +14,7 @@ interface image {
 }
 
 const Art = (props: ImageProps) => {
-  const { images, loading } = props;
+  const { images = [], loading = true } = props;
 
   console.log(images, "images");
 

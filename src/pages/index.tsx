@@ -101,6 +101,3 @@ const AuthShowcase: React.FC = () => {
     </div>
   );
 };
-function onMount(arg0: () => void) {
-  throw new Error("Function not implemented.");
-}
