@@ -1,22 +1,17 @@
-import { useState, useEffect } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { SessionContext, signIn, signOut, useSession } from "next-auth/react";
+import {  signIn, signOut, useSession } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 
 import Art from "./Image";
-import loadConfig from "next/dist/server/config";
 
 const Home: NextPage = () => {
-  const [images, setImages] = useState("");
-  const [loading, setLoading] = useState(true);
 
   const { data, isLoading } = trpc.images.getAllImages.useQuery();
 
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-  const sessionData = trpc.auth.getSession.useQuery();
 
   const handleClick = async () => {
     console.log("click");
