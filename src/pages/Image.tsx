@@ -1,17 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-//types
 
-interface ImageProps {
-  images: [image]
-  loading: boolean
-}
 
-interface image {
-  url: string
-  alt: string
-}
+
+
 
 const Art = (props: ImageProps) => {
   const { images = [], loading = true } = props;
