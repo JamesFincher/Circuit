@@ -1,34 +1,20 @@
-# Create T3 App
+Circuit is a photo bullitin intended to display images created by MidJourny and other AI tools.
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+It was scaffolded using create-t3-app. It currently fetches data from an express api, which querys an AWS S3 bucket.  
 
-## What's next? How do I make an app with this?
+To get it started:
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
-
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
-
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+1. Clone the repo.
+2. npm i
+3. Take a look at example.env and create a local ENV following the format. 
+- DATABASE_URL is is currently setup to utilize a postgresql server hosted on AWS RDS. Update this with your database url.
+- The application utilizes Discord as its current auth. To get this working, got to https://discord.com/developers/applications and create a new project. Copy the vars over.
+- 
 
 
-docs:
+---Readme is a work in progress---
+
+docs refrenced in the development of this project:
 
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/s3-example-photos-view.html
 
