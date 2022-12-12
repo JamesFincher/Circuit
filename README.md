@@ -1,4 +1,5 @@
 Circuit is a photo bullitin intended to display images created by MidJourny and other AI tools.
+Deployed: https://circuit-jamesfincher.vercel.app/
 
 It was scaffolded using create-t3-app. It currently fetches data from an express api, which querys an AWS S3 bucket.  
 
